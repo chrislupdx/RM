@@ -1,6 +1,7 @@
 const test = QUnit.test; 
 QUnit.module('Search url creator');
-import addSearchToQuery from '../src/add-search-to-query.js';
+import makeSearchUrl from '../src/make-search-url.js';
+
 
 test('make search url', assert => {
     //arrange
@@ -11,9 +12,9 @@ test('make search url', assert => {
 
     //act
     //assert
-    const expected = 'https://rickandmortyapi.com/api/character/?name=summer';
+    const expected = 'https://rickandmortyapi.com/api/character/?page=1&name=summer';
     
-    const result = addSearchToQuery(queryOptions);
+    const result = makeSearchUrl(queryOptions);
 
     assert.equal(result, expected);
 });

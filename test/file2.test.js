@@ -1,7 +1,6 @@
 const test = QUnit.test; 
 QUnit.module('Search Bar');
-import addSearchToQuery, { writePageToQuery } from '../src/add-search-to-query.js';
-
+import addSearchToQuery, { writePageToQuery, readFromquery } from '../src/add-search-to-query.js';
 
 
 test('add search to empty search', assert => {
@@ -35,4 +34,17 @@ test('update details of existing search', assert => {
     const result = addSearchToQuery(existingQuery, searchTerm);
     //assert
     assert.equal(result, 'name=morty&page=1');
+});
+
+test('read options from query', assert => {
+    //arrange
+    const queryOptions = 'name=morty&page=3';
+    const expected = {
+        name: 'morty',
+        page: 3
+    };
+    //act
+    const result = readFromquery(queryOptions);
+    //assert
+    assert.deepEqual(result, expected);
 });
