@@ -11,6 +11,21 @@ header {
     align-items: center;
 }
 
-h1 {
-    margin-left: 20px;
+#card {
+    flex:display;
+    flex-direction: column;
+    list-style-type: none;
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    align-self: center
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
 }

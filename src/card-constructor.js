@@ -3,12 +3,13 @@ function cardConstructor(fields) {
     const html = `
     <div id="card">
         <p>${fields.name}</p>
-        <p>${fields.status}</p>
-        <img src=${fields.image}></div>
+        <img src=${fields.image}>
+        <p>${fields.status}</p></div>
     `;
     template.innerHTML = html;
     const dom = template.content;
     return dom;
 }
+//fields MUST BE AN ARRAY, or at least know that we're taking the JSON and tunneling to data.results before hitting .name/.status/.image tags
 
 export default cardConstructor;
