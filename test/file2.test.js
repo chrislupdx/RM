@@ -1,20 +1,27 @@
 const test = QUnit.test; 
-QUnit.module('DOMcontentTest');
+QUnit.module('Search Bar');
+import addSearchToQuery from '../src/add-search-to-empty-query.js';
 
 
-test('Pass data to card constructor', function(assert){
+
+test('add search to empty search', assert => {
     //arrange
-    const
-
-    const expected = `<div id="card">
-    <p>Rick Sanchez</p>
-    <p>Alive</p>
-    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
-</div>`;
-
+    const existingQuery = '';
+    const searchTerm = 'rick sanchez';
     //act
-    const result = cardConstructor(fields);
-    
     //assert
-    assert.htmlEqual(result, expected);
+    const result = addSearchToQuery(existingQuery, searchTerm);
+
+    assert.equal(result, 'searchTerm=rick+sanchez&page=1');
+});
+
+
+test('update details of existing search', assert => {
+    //arrange
+    const existingQuery = 'searchTerm=summer&page=1';
+    const searchTerm = 'morty';
+    //act
+    const result = addSearchToQuery(existingQuery, searchTerm);
+    //assert
+    assert.equal(result, 'searchTerm=morty&page=1');
 });
