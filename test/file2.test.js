@@ -36,6 +36,7 @@ test('update details of existing search', assert => {
     assert.equal(result, 'name=morty&page=1');
 });
 
+//possible false positive
 test('read options from query', assert => {
     //arrange
     const queryOptions = 'name=rick&page=1';

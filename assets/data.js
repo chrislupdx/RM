@@ -9,7 +9,7 @@ const data = {
         {
             "id": 1,
             "name": "Rick Sanchez",
-            "status": "Alive",
+            "status": "Unknown",
             "species": "Human",
             "type": "",
             "gender": "Male",
@@ -158,7 +158,7 @@ const data = {
         {
             "id": 4,
             "name": "Beth Smith",
-            "status": "Alive",
+            "status": "Dead",
             "species": "Human",
             "type": "",
             "gender": "Female",

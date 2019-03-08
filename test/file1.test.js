@@ -9,7 +9,7 @@ test('Render Card Test', function(assert){
     const expected = `<div id="card">
     <p>Rick Sanchez</p>
     <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
-    <p>Alive</p></div>`;
+    <p>Unknown</p></div>`;
 
     //act
     const result = cardConstructor(fields);
