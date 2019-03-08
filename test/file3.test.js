@@ -1,20 +1,22 @@
 const test = QUnit.test; 
-QUnit.module('Search url creator');
+QUnit.module('read/write url "optoins" to query');
 import makeSearchUrl from '../src/make-search-url.js';
 
 
-test('make search url', assert => {
+test('write query search term makeSearchUrl', assert => {
     //arrange
     const queryOptions = {
-        name: 'summer',
-        page: 1
+        search: {
+
+            name: 'summer',
+            page: 1
+        }
     };
+    const query = makeSearchUrl(queryOptions);
 
     //act
     //assert
-    const expected = 'https://rickandmortyapi.com/api/character/?page=1&name=summer';
-    
-    const result = makeSearchUrl(queryOptions);
-    
-    assert.equal(result, expected);
+    const expected = '?page=1&name=summer';
+        
+    assert.equal(query, expected);
 });

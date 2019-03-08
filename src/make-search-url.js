@@ -1,12 +1,17 @@
 const searchUrl = 'https://rickandmortyapi.com/api/character/';
 
 export default function makeSearchUrl(queryOptions){
-    const name = queryOptions.name;
-    if(!name) {
+    const searchOptions = queryOptions.search;
+    if(!searchOptions) {
         return '';
     }
-    const url = new URL(searchUrl);
-    url.searchParams.set('page', queryOptions.page);
-    url.searchParams.set('name', queryOptions.name);
-    return url.toString();
+    const searchParams = new URLSearchParams();
+    searchParams.set('name', searchOptions.name);
+    
+    const paginOptions = queryOptions.page; 
+    if(paginOptions) {
+        searchParams.set('page', paginOptions.page)
+    }
+
+    return '?' + searchParams.toString();
 }
