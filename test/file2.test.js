@@ -3,7 +3,7 @@ QUnit.module('Search Bar');
 import addSearchToQuery, { writePageToQuery, readFromquery } from '../src/add-search-to-query.js';
 
 
-test('add search to empty search', assert => {
+test('add search to empty hash', assert => {
     //arrange
     const existingQuery = '';
     const searchTerm = 'rick sanchez';
@@ -14,7 +14,7 @@ test('add search to empty search', assert => {
     assert.equal(result, 'name=rick+sanchez&page=1');
 });
 
-test('write page to existing query', assert => {
+test('write page to existing query, changes search and resets page', assert => {
     //arrange
     const existingQuery = 'name=summer&page=1';
     const page = 3;

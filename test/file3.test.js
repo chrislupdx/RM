@@ -1,32 +1,29 @@
 const test = QUnit.test; 
 QUnit.module('read/write url "optoins" to query');
 import makeSearchUrl from '../src/make-search-url.js';
+import writePageToQuery, { readFromquery } from '../src/add-search-to-query.js';
 
+//https://rickandmortyapi.com/api/character/#?name=rick+sanchez&page=1
 //re-write url write test
-test('write query search term makeSearchUrl', assert => {
+test('write page to exisiting query ', assert => {
     //arrange
-    const queryOptions = {
-        search: {
-
-            name: 'summer',
-        }
-    };
-    const query = makeSearchUrl(queryOptions);
-
+    const existingQuery = 'name=rick+sanchez&page=1';
+    const page = 1;
     //act
+    const result = writePageToQuery(existingQuery, page);
+    const expected = 'name=rick+sanchez&page=1';
     //assert
-    const expected = '?name=summer';
-        //this test does not test for paging
-    assert.equal(query, expected);
+    assert.equal(result, expected);
 });
 
-test('writes query for search and paging', assert => {
-    const queryOptions = {
-        search: {
-            search: 'rick',
-            page: 3,
-        }
+test('read options  from query ', assert => {
+    //arrange
+    const queryOptions = 'name=rick+sanchez&page=1';
+    const expected = {
+        name: 'summer',
+        page: 2
     };
-    const query = writeOptionsAsQuery(queryOptions);
-    assert.equal(query, '?searchTerm')
+    //act
+    const result = readFromquery(queryOptions);
+    assert.deepEqual(result, expected);
 });
