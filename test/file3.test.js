@@ -1,3 +1,4 @@
+//THESE TESTS ARE REDUNDANT WITH HASH QUERY AND SHOULD PROBABLY GO
 const test = QUnit.test; 
 QUnit.module('read/write url "optoins" to query');
 import makeSearchUrl from '../src/make-search-url.js';
@@ -16,7 +17,7 @@ test('write page to exisiting query ', assert => {
     assert.equal(result, expected);
 });
 
-test('read options  from query ', assert => {
+test('read options from query ', assert => {
     //arrange
     const queryOptions = 'name=rick+sanchez&page=1';
     const expected = {

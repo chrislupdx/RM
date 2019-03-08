@@ -1,4 +1,4 @@
-import addSearchToQuery from '../src/add-search-to-query.js';
+import addSearchToQuery from './add-search-to-query.js';
 
 const searchForm = document.getElementById('searchBar');
 const searchTermInput = document.querySelector('input');
@@ -8,7 +8,7 @@ searchForm.addEventListener('submit', event => {
     const existingQuery = window.location.hash.slice(1);
     const newQuery = addSearchToQuery(existingQuery, searchTerm);
     window.location.hash = newQuery;
-    console.log(searchTerm + ' is searchterm');
+    console.log(searchTerm + ' is nu searchterm');
 });
 
 export default function updateSearchTerm(searchTerm){
