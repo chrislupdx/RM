@@ -15,6 +15,6 @@ test('make search url', assert => {
     const expected = 'https://rickandmortyapi.com/api/character/?page=1&name=summer';
     
     const result = makeSearchUrl(queryOptions);
-
+    
     assert.equal(result, expected);
 });

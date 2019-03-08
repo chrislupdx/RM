@@ -12,6 +12,7 @@ export function writePageToQuery(existingQuery, page) {
 }
 
 export function readFromquery(queryOptions){
+    console.log('hurrdud');
     const searchParams = new URLSearchParams(queryOptions);
     const searchObject = {
         name: searchParams.get('name'),

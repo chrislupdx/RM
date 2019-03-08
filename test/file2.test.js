@@ -38,10 +38,10 @@ test('update details of existing search', assert => {
 
 test('read options from query', assert => {
     //arrange
-    const queryOptions = 'name=morty&page=3';
+    const queryOptions = 'name=rick&page=1';
     const expected = {
-        name: 'morty',
-        page: 3
+        name: 'rick',
+        page: 1
     };
     //act
     const result = readFromquery(queryOptions);
