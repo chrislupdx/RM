@@ -15,12 +15,18 @@ export function writePageToQuery(existingQuery, page) {
 
 //is this function being fed the results array out of the JSON
 //do we need a readpagefromquery function?
-export function readFromquery(queryOptions){
-    console.log('hurrdud');
-    const searchParams = new URLSearchParams(queryOptions);
+//if not praram.body, do something
+
+export function readFromquery(query){
+    const searchParams = new URLSearchParams(query);
+    console.log(searchParams.toString()), '***************';
     const searchObject = {
         name: searchParams.get('name'),
-        page: parseInt(searchParams.get('page'))
+        page: searchParams.get('page') || '1'
     };
+    console.log(searchParams.get('name'), 'whaaaaaaaaat?');
+    console.log(searchObject.toString() + ' is searchObject.toString()');
     return searchObject;
+
+//do the searchparams.get() contents need to be a string
 }
