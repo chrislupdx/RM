@@ -16,11 +16,8 @@ fetch(APIURL).then(response => response.json()).then(body => loadCards(body.resu
 window.addEventListener('hashchange', function() {
     const query = window.location.hash.slice(1);
     const queryOptions = readFromquery(query);
-
-    updateSearchTerm(queryOptions.name);
-
-    //switch searchTerm for name in ln 13 bc rick+morty api
     const apiURL = makeSearchUrl(queryOptions);
+    updateSearchTerm(queryOptions.name);
 
     fetch(apiURL)
         .then(response => response.json())
