@@ -3,6 +3,8 @@ import './input-to-url.js';
 import { readFromquery } from '../src/add-search-to-query.js';
 import updateSearchTerm from './input-to-url.js';
 import makeSearchUrl from './make-search-url.js';
+import { updatePagingInfo } from './paging-component.js';
+
 
 const APIURL = 'https://rickandmortyapi.com/api/character/';
 
@@ -21,8 +23,14 @@ window.addEventListener('hashchange', function() {
 
     fetch(apiURL)
         .then(response => response.json())
-        .then(body => loadCards(body.results))
-        .catch((error) => {
-            console.log(error.message);
+        .then(body => {
+            loadCards(body.results);
+            const pagingInfo = {
+                page: body.page,
+                totalPages: body.pages
+                //i don't know if this is named right
+            };
+            console.log(pagingInfo + " at the end of fetch");     
+            updatePagingInfo(pagingInfo);   
         });
 });

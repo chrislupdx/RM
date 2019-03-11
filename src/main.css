@@ -37,3 +37,9 @@ ul {
     display: flex;
     flex-wrap: wrap;
 }
+
+#paging {
+    display: flex;
+    margin-left: 2%;
+    align-items: center;
+}
