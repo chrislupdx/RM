@@ -24,13 +24,16 @@ window.addEventListener('hashchange', function() {
     fetch(apiURL)
         .then(response => response.json())
         .then(body => {
+            //LOG THE BODY and see what's next
             loadCards(body.results);
             const pagingInfo = {
                 page: body.page,
                 totalPages: body.pages
                 //i don't know if this is named right
             };
-            console.log(pagingInfo + " at the end of fetch");     
+            console.log(pagingInfo + " is paginginfo in hashchanged");
             updatePagingInfo(pagingInfo);   
+            console.log(JSON.stringify(pagingInfo) + " paginginfo index");
+
         });
 });

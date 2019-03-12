@@ -1,16 +1,17 @@
 import { writePageToQuery } from './add-search-to-query.js';
-const pageButtonsNode = document.getElementById('page-buttons');
+// const pageButtonsNode = document.getElementById('page-buttons');
 const previousButtonNode = document.getElementById('previous-button');
 const nextButtonNode = document.getElementById('next-button');
 const currentPageNode = document.getElementById('current-page');
 const totalPageNode = document.getElementById('total-pages');
 
-let currentPageNumber = '1';
+let currentPageNumber = 1;
 
 //this functions assignment is going to ride on API pagination
 export function updatePagingInfo(pagingInfo){
-    currentPageNumber = parseInt(pagingInfo.page);
-    console.log(currentPageNumber + " is currentPageNumber");
+    // currentPageNumber = pagingInfo.page;
+    console.log(currentPageNumber + " is currentPagineNumber ");
+    console.log(pagingInfo.toString());
     currentPageNode.textContent = currentPageNumber;
     totalPageNode.textContent = pagingInfo.pages;
     nextButtonNode.disabled = currentPageNode === pagingInfo.totalPageNode;
@@ -27,12 +28,10 @@ function updateQuery() {
 nextButtonNode.addEventListener('click', () => {
     currentPageNumber++;
     updateQuery();
-    console.log(currentPageNumber + 'nexbutton');
 
 });
 
 previousButtonNode.addEventListener('click', () => {
     currentPageNumber--;
     updateQuery();
-    console.log(currentPageNumber + 'previousbtnnode');
 });

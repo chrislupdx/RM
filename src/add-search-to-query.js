@@ -22,7 +22,7 @@ export function readFromquery(query){
     const searchParams = new URLSearchParams(query);
     const searchObject = {
         name: searchParams.get('name'),
-        page: searchParams.get('page') || '1'
+        page: parseInt(searchParams.get('page'))
     };
     return searchObject;
 //do the searchparams.get() contents need to be a string
