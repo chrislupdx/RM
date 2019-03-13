@@ -1,4 +1,5 @@
 import { writePageToQuery } from './add-search-to-query.js';
+
 const previousButtonNode = document.getElementById('previous-button');
 const nextButtonNode = document.getElementById('next-button');
 const currentPageNode = document.getElementById('current-page');

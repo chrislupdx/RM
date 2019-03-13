@@ -1,5 +1,6 @@
 const test = QUnit.test;
 QUnit.module('search URL constructor test');
+
 import makeSearchUrl from '../src/make-search-url.js';
 
 test('construct search url ', assert => {
