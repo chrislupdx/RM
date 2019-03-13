@@ -10,7 +10,6 @@ export default function cardConstructor(fields) {
     const dom = template.content;
     return dom;
 }
-//fields MUST BE AN ARRAY, or at least know that we're taking the JSON and tunneling to data.results before hitting .name/.status/.image tags
 
 const listNode = document.getElementById('cardlist');
 

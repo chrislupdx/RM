@@ -6,10 +6,7 @@ export default function makeSearchUrl(queryOptions) {
     }
     
     const url = new URL(SEARCH_MOVIE_URL);
-    //this .set pattern got you last time, slow down+figure it out
-    //Q: what're the key/val relations that happen in set that needs to occur
     url.searchParams.set('name', queryOptions.name);
-    //stringify page in the line below
     url.searchParams.set('page', queryOptions.page);
     return url.toString();
 }   

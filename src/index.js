@@ -10,13 +10,6 @@ const pageButtons = document.getElementById('paging');
 loadQuery();
 window.addEventListener('hashchange', loadQuery); 
 
-// fetch(APIURL).then(response => response.json()).then(body => loadCards(body.results));
-// const APIURL = 'https://rickandmortyapi.com/api/character/';
-
-//in thefucntion when it comes back undefined
-//if the thing comes back undefined -> do something
-//throw an error message
-
 function loadQuery() {
     const query = window.location.hash.slice(1);
     const queryOptions = readFromquery(query);
@@ -34,11 +27,8 @@ function loadQuery() {
             .then(body => {
                 loadCards(body.results);
                 const pagingInfo = {
-                    // page: body.info.page,
                     totalPages: body.info.pages,
                 };
-                //how is this even supposed to wwork rn lol
-                //wait I think that page is the bad one\we generate page internally
                 updatePagingInfo(pagingInfo);   
             });
     }
