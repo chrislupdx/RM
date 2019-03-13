@@ -10,7 +10,10 @@ let currentPageNumber = 1;
 
 //this functions assignment is going to ride on API pagination
 export const updatePagingInfo = (pagingInfo) => {
+//currentpagenumber should be just 1 and gets updated when the buttons get hit
     currentPageNumber = pagingInfo.page;
+    //pull currentpagenumber out of url 
+    
     currentPageNode.textContent = currentPageNumber;
     totalPageNode.textContent = pagingInfo.totalPages;  
     nextButtonNode.disabled = currentPageNumber === pagingInfo.totalPages;

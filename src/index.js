@@ -36,9 +36,13 @@ function loadQuery() {
             .then(body => {
                 loadCards(body.results);
                 const pagingInfo = {
-                    page: body.page,
-                    totalPages: body.pages
+                    page: body.info.page,
+                    totalPages: body.info.pages,
                 };
+                //how is this even supposed to wwork rn lol
+                console.log(pagingInfo.totalPages + ' is totalpages');
+                console.log(pagingInfo.page + ' is page');
+                //wait I think that page is the bad one\we generate page internally
                 updatePagingInfo(pagingInfo);   
             });
     }
