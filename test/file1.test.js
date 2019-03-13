@@ -1,6 +1,7 @@
 const test = QUnit.test; 
 QUnit.module('DOMcontentTest');
 import cardConstructor from '../src/card-constructor.js';
+import data from '../assets/data.js';
 
 test('Render Card Test', function(assert){
     //arrange

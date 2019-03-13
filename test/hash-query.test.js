@@ -42,7 +42,7 @@ test('read options from query', assert => {
     const queryOptions = 'name=rick&page=1';
     const expected = {
         name: 'rick',
-        page: '1'
+        page: 1
     };
     //act
     const result = readFromquery(queryOptions);
