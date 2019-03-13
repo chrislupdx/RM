@@ -5,35 +5,41 @@ import updateSearchTerm from './input-to-url.js';
 import makeSearchUrl from './make-search-url.js';
 import { updatePagingInfo } from './paging-component.js';
 
+const pageButtons = document.getElementById('paging');
 
-const APIURL = 'https://rickandmortyapi.com/api/character/';
+loadQuery();
+window.addEventListener('hashchange', loadQuery); 
 
-fetch(APIURL).then(response => response.json()).then(body => loadCards(body.results));
+// fetch(APIURL).then(response => response.json()).then(body => loadCards(body.results));
+// const APIURL = 'https://rickandmortyapi.com/api/character/';
 
 //in thefucntion when it comes back undefined
 //if the thing comes back undefined -> do something
 //throw an error message
 
-
-window.addEventListener('hashchange', function() {
+function loadQuery() {
     const query = window.location.hash.slice(1);
+    console.log(query + ' is query');
     const queryOptions = readFromquery(query);
     const apiURL = makeSearchUrl(queryOptions);
+    console.log(apiURL);
     updateSearchTerm(queryOptions.name);
 
-    fetch(apiURL)
-        .then(response => response.json())
-        .then(body => {
-            //LOG THE BODY and see what's next
-            loadCards(body.results);
-            const pagingInfo = {
-                page: body.page,
-                totalPages: body.pages
-                //i don't know if this is named right
-            };
-            console.log(pagingInfo + " is paginginfo in hashchanged");
-            updatePagingInfo(pagingInfo);   
-            console.log(JSON.stringify(pagingInfo) + " paginginfo index");
-
-        });
-});
+    if(!apiURL) {
+        pageButtons.classList.add('hidden');
+        return;
+    }
+    else {
+        pageButtons.classList.remove('hidden');
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(body => {
+                loadCards(body.results);
+                const pagingInfo = {
+                    page: body.page,
+                    totalPages: body.pages
+                };
+                updatePagingInfo(pagingInfo);   
+            });
+    }
+}
