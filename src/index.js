@@ -36,7 +36,7 @@ function loadQuery() {
             .then(body => {
                 loadCards(body.results);
                 const pagingInfo = {
-                    page: body.info.page,
+                    // page: body.info.page,
                     totalPages: body.info.pages,
                 };
                 //how is this even supposed to wwork rn lol

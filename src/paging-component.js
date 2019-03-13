@@ -11,9 +11,8 @@ let currentPageNumber = 1;
 //this functions assignment is going to ride on API pagination
 export const updatePagingInfo = (pagingInfo) => {
 //currentpagenumber should be just 1 and gets updated when the buttons get hit
-    currentPageNumber = pagingInfo.page;
+    // currentPageNumber = pagingInfo.page;
     //pull currentpagenumber out of url 
-    
     currentPageNode.textContent = currentPageNumber;
     totalPageNode.textContent = pagingInfo.totalPages;  
     nextButtonNode.disabled = currentPageNumber === pagingInfo.totalPages;
@@ -22,11 +21,12 @@ export const updatePagingInfo = (pagingInfo) => {
 //17:25 update query appears to be retuning NaN page.  Would stringifying via parseInt() existing query be necessary?
 function updateQuery() {
     const existingQuery = window.location.hash.slice(1);
-    console.log(existingQuery + ' is existingQuery');
     //i don't know if adding parseInt there is legal, but its worth a shot
     //tried parsing after receiving NaN, no luck
     const newQuery = writePageToQuery(existingQuery, parseInt(currentPageNumber));
     window.location.hash = newQuery;
+    console.log(existingQuery);
+
 }
 
 nextButtonNode.addEventListener('click', () => {
