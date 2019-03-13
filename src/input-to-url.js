@@ -8,7 +8,6 @@ searchForm.addEventListener('submit', event => {
     const existingQuery = window.location.hash.slice(1);
     const newQuery = addSearchToQuery(existingQuery, searchTerm);
     window.location.hash = newQuery;
-    console.log(newQuery + ' window.location.hash from searchterminput');
 });
 
 export default function updateSearchTerm(searchTerm){

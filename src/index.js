@@ -21,7 +21,6 @@ function loadQuery() {
     const query = window.location.hash.slice(1);
     const queryOptions = readFromquery(query);
     const apiURL = makeSearchUrl(queryOptions);
-    console.log(apiURL);
     updateSearchTerm(queryOptions.name);
 
     if(!apiURL) {
@@ -39,8 +38,6 @@ function loadQuery() {
                     totalPages: body.info.pages,
                 };
                 //how is this even supposed to wwork rn lol
-                console.log(pagingInfo.totalPages + ' is totalpages');
-                console.log(pagingInfo.page + ' is page');
                 //wait I think that page is the bad one\we generate page internally
                 updatePagingInfo(pagingInfo);   
             });

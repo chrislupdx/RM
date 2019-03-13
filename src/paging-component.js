@@ -25,8 +25,6 @@ function updateQuery() {
     //tried parsing after receiving NaN, no luck
     const newQuery = writePageToQuery(existingQuery, parseInt(currentPageNumber));
     window.location.hash = newQuery;
-    console.log(existingQuery);
-
 }
 
 nextButtonNode.addEventListener('click', () => {
