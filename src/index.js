@@ -19,7 +19,6 @@ window.addEventListener('hashchange', loadQuery);
 
 function loadQuery() {
     const query = window.location.hash.slice(1);
-    console.log(query + ' is query');
     const queryOptions = readFromquery(query);
     const apiURL = makeSearchUrl(queryOptions);
     console.log(apiURL);

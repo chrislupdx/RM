@@ -17,7 +17,7 @@ export const updatePagingInfo = (pagingInfo) => {
     totalPageNode.textContent = pagingInfo.totalPages;  
     nextButtonNode.disabled = currentPageNumber === pagingInfo.totalPages;
     previousButtonNode.disabled = currentPageNumber === 1;
-}
+};
 //17:25 update query appears to be retuning NaN page.  Would stringifying via parseInt() existing query be necessary?
 function updateQuery() {
     const existingQuery = window.location.hash.slice(1);

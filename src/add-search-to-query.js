@@ -9,7 +9,6 @@ export default function addSearchToQuery(existingQuery, searchTerm){
 export function writePageToQuery(existingQuery, page) {
     const searchParams = new URLSearchParams(existingQuery);
     searchParams.set('page', page);
-    console.log(searchParams + ' is writepageToQuery searchparams');
     return searchParams.toString();
 }    
 
